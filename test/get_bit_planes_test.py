@@ -3,6 +3,7 @@ from GrayScaleBitPlane import *
 from SimpleCV import *
 
 class GrayScaleBitPlaneTest(unittest.TestCase):
+
   def setUp(self):
     self.testImage = Image("lenna").grayscale()
     self.subject = GrayScaleBitPlane()
@@ -25,6 +26,9 @@ class GrayScaleBitPlaneTest(unittest.TestCase):
     res = self.subject.transformPixel(0, (3,3,3))
     self.assertGrayPixel(res, 255)
 
+
+
+
   def test_transform_pixel_returns_black_when_not_in_plane_1(self):
     res = self.subject.transformPixel(1, (8,8,8))
     self.assertGrayPixel(res, 0)
@@ -32,6 +36,9 @@ class GrayScaleBitPlaneTest(unittest.TestCase):
   def test_transform_pixel_returns_white_when_in_plane_1(self):
     res = self.subject.transformPixel(1, (2,2,2))
     self.assertGrayPixel(res, 255)
+
+
+
 
 
   def test_convert_to_8_bit_little_endian_binary_string_0(self):
@@ -45,6 +52,9 @@ class GrayScaleBitPlaneTest(unittest.TestCase):
   def test_convert_to_8_bit_little_endian_binary_string_128(self):
     res = self.subject.convertToLsbfBinary(128)
     self.assertEqual(res, "00000001")
+
+
+
 
   def assertGrayPixel(self, actual, expected):
     self.assertEqual(actual[0], expected)
