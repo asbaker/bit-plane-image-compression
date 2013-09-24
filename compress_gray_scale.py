@@ -24,7 +24,7 @@ def main(sourceFile, destFile):
     print "count is {0}".format(count)
 
 
-  compressionMask = planeCounts[0][0] + planeCounts[1][0]# + planeCounts[2][0] + planeCounts[3][0] + planeCounts[4][0] + planeCounts[5][0] + planeCounts[6][0] + planeCounts[7][0]
+  compressionMask = planeCounts[0][0]# + planeCounts[1][0] + planeCounts[2][0] + planeCounts[3][0] + planeCounts[4][0] + planeCounts[5][0] + planeCounts[6][0] + planeCounts[7][0]
   compressionMask.save("images/mask_out.png")
 
   compressionMask = compressionMask.createBinaryMask(color1=(254,254,254), color2=(255,255,255));
